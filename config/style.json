@@ -1,0 +1,9 @@
+{
+    "default": {
+        "name": "default",
+        "width": 14.65,
+        "height": 16,
+        "dpi": 200,
+        "font": "Urbanist-VariableFont_wght.ttf"
+    }
+}
