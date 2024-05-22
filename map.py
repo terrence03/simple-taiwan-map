@@ -36,26 +36,24 @@ class MapModel:
     def __init__(self):
         self.crs = "WGS84"
         self.county_gdf = gpd.read_file(
-            Path(__file__).parent / "shp" / "COUNTY_MOI_1090820.shp",
+            Path().cwd() / "shp" / "COUNTY_MOI_1090820.shp",
             encoding="utf-8",
             crs=self.crs,
         )
         self.town_gdf = gpd.read_file(
-            Path(__file__).parent / "shp" / "TOWN_MOI_1120825.shp",
+            Path().cwd() / "shp" / "TOWN_MOI_1120825.shp",
             encoding="utf-8",
             crs=self.crs,
         )
         self.font = FontProperties(
-            fname=Path(__file__).parent / "font" / "Urbanist-VariableFont_wght.ttf"
+            fname=Path().cwd() / "font" / "Urbanist-VariableFont_wght.ttf"
         )
         with open(
-            Path(__file__).parent / "config" / "map_range.json", "r", encoding="utf-8"
+            Path().cwd() / "config" / "map_range.json", "r", encoding="utf-8"
         ) as f:
             self._map_range = json.load(f)
 
-        with open(
-            Path(__file__).parent / "config" / "style.json", "r", encoding="utf-8"
-        ) as f:
+        with open(Path().cwd() / "config" / "style.json", "r", encoding="utf-8") as f:
             self._style_list = json.load(f)
 
     def _inset_zoom_in_map(self, ax, bounds: list, zoom_in_range: dict) -> plt.Axes:
